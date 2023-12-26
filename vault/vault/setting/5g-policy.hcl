@@ -1,3 +1,0 @@
-path "vault/*" {
-    capabilities = ["read"]
-}
