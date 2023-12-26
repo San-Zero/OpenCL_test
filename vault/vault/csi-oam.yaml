@@ -1,0 +1,29 @@
+apiVersion: secrets-store.csi.x-k8s.io/v1
+kind: SecretProviderClass
+metadata:
+  name: vault-setting-secrets
+spec:
+  provider: vault
+  parameters:
+    roleName: "5g-role"
+    vaultAddress: "https://vault:8200"
+    vaultCACertPath: "/vault/userconfig/vault-server-tls/vault.ca"
+    objects: |
+      - objectName: "tls.crt"
+        secretPath: "vault/oam"
+        secretKey: "tls.crt"
+      - objectName: "tls.key"
+        secretPath: "vault/oam"
+        secretKey: "tls.key"
+      - objectName: "settings.json"
+        secretPath: "vault/oam"
+        secretKey: "settings.json"
+      - objectName: "vault_token"
+        secretPath: "vault/oam"
+        secretKey: "vault_token"
+      - objectName: "vault.crt"
+        secretPath: "vault/oam"
+        secretKey: "vault.crt"
+      - objectName: "vault.key"
+        secretPath: "vault/oam"
+        secretKey: "vault.key"

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: vault
+  name: vault-service
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/instance: vault
+    app.kubernetes.io/name: vault
+    component: server
+  ports:
+    - protocol: TCP
+      port: 8200
+      targetPort: 8200
+      name: vault-server
+  externalIPs:
+    - EXTERNAL_IP
