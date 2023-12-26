@@ -1,0 +1,3 @@
+path "vault/*" {
+    capabilities = ["read"]
+}
